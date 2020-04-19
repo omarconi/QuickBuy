@@ -8,9 +8,9 @@ namespace QuickBuy.Domain.Entities.ObjectVal
         public string Nome { get; set; }
         public string Descricao { get; set; }
 
-        public bool EhBoleto { get { return Id == (int)TipoFormaPagamentoEnum.Boleto; } }
-        public bool EhCartaoCredito { get { return Id == (int)TipoFormaPagamentoEnum.CartaoCredito; } }
-        public bool EhDeposito { get { return Id == (int)TipoFormaPagamentoEnum.Deposito; } }
-        public bool EhNaoDefinido { get { return Id == (int)TipoFormaPagamentoEnum.NaoDefinido; } }
+        public bool EhBoleto => Id == (int)TipoFormaPagamentoEnum.Boleto;
+        public bool EhCartaoCredito => Id == (int)TipoFormaPagamentoEnum.CartaoCredito;
+        public bool EhDeposito => Id == (int)TipoFormaPagamentoEnum.Deposito;
+        public bool EhNaoDefinido => Id == (int)TipoFormaPagamentoEnum.NaoDefinido;
     }
 }

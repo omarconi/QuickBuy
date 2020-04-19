@@ -1,10 +1,11 @@
 ﻿using QuickBuy.Domain.Entities.ObjectVal;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuickBuy.Domain.Entities
 {
-    public class Pedido
+    public class Pedido : Entidade
     {
         public int Id { get; set; }
 
@@ -32,5 +33,20 @@ namespace QuickBuy.Domain.Entities
         /// Pedido deve ter pelo menos um item
         /// </summary>
         public ICollection<ItemPedido> ItensPedido { get; set; }
+
+        public override void Validate()
+        {
+
+            LimparMensagensValidacao();
+
+            if (!ItensPedido.Any())
+                MensagemValidacao.Add("Crítica: Pedido precisa de pelo menos um item!");
+            
+            if (string.IsNullOrEmpty(CEP))
+            {
+                MensagemValidacao.Add("Crítica: CEP não informado!");
+            }
+
+        }
     }
 }
