@@ -33,6 +33,11 @@
             {
                 AdicionarCritica("Crítica: O sobrenome do usuário está em branco!");
             }
+
+            if (string.IsNullOrEmpty(Senha))
+            {
+                AdicionarCritica("Crítica: A senha do usuário não foi informada!");
+            }
         }
     }
 }
